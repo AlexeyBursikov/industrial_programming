@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  rabbit:
+    image: rabbitmq
+    hostname: rabbit
+    networks:
+      - myNetwork
+
+  receive:
+    build: ./receive
+    networks:
+      - myNetwork
+
+  database:
+    image: mongo
+    hostname: database
+    networks:
+      - myNetwork
+
+networks:
+  myNetwork:
