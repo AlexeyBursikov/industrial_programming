@@ -1,0 +1,10 @@
+FROM python:3
+RUN pip install --upgrade pip 
+ 
+WORKDIR /receive
+ADD . /receive
+
+RUN pip install -r requirements.txt
+RUN python -m pip install pymongo
+
+ENTRYPOINT ["python", "receive.py"]
